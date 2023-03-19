@@ -6,20 +6,21 @@
     --accent-dark:#801205;
     --primary-light:#FAF6EC;
     --accent-light:#EF9E80;
-    --white-faded:rgba(255,255,255,0.85);
+    --white-faded:blue;
+    /*-white-faded:rgba(255,255,255,1);*/
     --white:#fff;
     --bg-lightest:#FAF6EC;
 }
 
 body{
-    background-color:var(--bg-lightest);
+    background-color:var(--white);
     font-family: 'Merriweather Sans', sans-serif;
 }
 
 
 
   header{
-    background-color:var(--white);
+    background-color:var(--bg-lightest);
     padding:2% 0;
   }
 

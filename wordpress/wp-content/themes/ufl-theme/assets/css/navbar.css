@@ -1,6 +1,8 @@
 .navbar {
     background-color: var(--primary-dark);;
   }
+
+/*
   .navbar .navbar-brand {
     color: var(--white-faded);;
   }
@@ -124,8 +126,18 @@
     color: var(--primary-dark);;
     background-color: var(--primary-light);;
   }
-
+*/
   /*My Additions-----------*/
+
+  .navbar .navbar-nav .nav-item.active .nav-link,
+  .navbar .navbar-nav .nav-item.active .nav-link:hover,
+  .navbar .navbar-nav .nav-item.active .nav-link:focus,
+  .navbar .navbar-nav .nav-item.show .nav-link,
+  .navbar .navbar-nav .nav-item.show .nav-link:hover,
+  .navbar .navbar-nav .nav-item.show .nav-link:focus {
+    color: var(--white);
+    font-weight:bold;
+  }
   nav.navbar{
     padding:0.5em 0;
     margin:0;
@@ -147,6 +159,7 @@
   text-decoration: none;
   background-color: var(--primary-light);
 }
+
 
 .navbar .navbar-nav .nav-link:not(.disabled):hover, .navbar .navbar-nav .nav-link:not(.disabled):focus {
     color: var(--white);
@@ -181,7 +194,7 @@
     
       }
 
-      .current_page_item{
+      current_page_item{
         margin-bottom:-0.5em;
       }
     
