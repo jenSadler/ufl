@@ -7,26 +7,15 @@
     <title>Unitarian Fellowship of London</title> 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> 
     <link rel="stylesheet" href="<?php echo get_template_directory_uri()?>/style.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri()?>/assets/css/navbar.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri()?>/assets/css/navbar-v2.css">
     <?php wp_head()?>
   </head>
 
   <body>
-  <div class="rainbow-box"></div>
-  <header >
-   
-    <div class="container">
-      <div class="header-container">
-      <img class="header-logo" src="<?php echo get_template_directory_uri()?>/assets/img/ufl-logo.png"/>
-        <div class="header-text-container">
-        <h1 class="header-title">Unitarian Fellowship of London</h1>
-        <p class="header-subtitle">Lorum Ipsum Dolor Sit. Lorum Ipsum Dolor Sit. Lorum Ipsum Dolor Sit</p>
-        </div>
-      </div>
-    </div>
-  </header>
   
- 
+
+  
+
   <nav class="navbar navbar-expand-md navbar-dark" role="navigation">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -52,3 +41,16 @@
    
     </div>
 </nav>
+<div class="rainbow-box"></div>
+<header class="hold-header">
+   
+   <div class="container">
+     <div class="header-container">
+       <div class="header-text-container">
+       <h1 class="header-title">Unitarian Fellowship of London</h1>
+       <p class="header-subtitle">Lorum Ipsum Dolor Sit. Lorum Ipsum Dolor Sit. Lorum Ipsum Dolor Sit</p>
+       </div>
+     </div>
+   </div>
+ </header>
+  

@@ -2,12 +2,10 @@
 
 :root{
    /*--primary-dark:#2D434D;*/
-   --primary-dark:#392F5A;
-    --accent-dark:#801205;
-    --primary-light:#FAF6EC;
+   --primary-dark:rgb(57, 47, 90);
+    --accent-dark:rgb(128, 18, 5);
+    --primary-light:rgb(167, 221, 196);
     --accent-light:#EF9E80;
-    --white-faded:blue;
-    /*-white-faded:rgba(255,255,255,1);*/
     --white:#fff;
     --bg-lightest:#FAF6EC;
 }
@@ -17,11 +15,17 @@ body{
     font-family: 'Merriweather Sans', sans-serif;
 }
 
-
+.menu-image-title-after > span {
+    display: flex;
+    align-items: center;
+    }
 
   header{
-    background-color:var(--bg-lightest);
-    padding:2% 0;
+    background-image:linear-gradient(to bottom, rgba(57, 47, 90,0.52), rgba(167, 221, 196, 0.73)),
+    url("assets/img/unitarian-building.jpg");
+    padding:8% 0;
+    background-size:cover;
+ 
   }
 
   .rainbow-box{
@@ -46,23 +50,24 @@ body{
   .header-container {
     display: flex;
     align-items: center;
-    
+    justify-content: center;
+    margin:2%;
   }
 
   .header-logo{
-    width:100px;
-    height:100px;
+    width:75px;
+    height:75px;
 
   }
 
   .header-title{
-    color:var(--primary-dark);
+    color:var(--white);
     font-weight:400;
     margin:0;
   }
   .header-subtitle{
     font-family: 'Merriweather', serif;
-    color:var(--accent-dark);
+    color:var(--white);
     margin:0;
   }
   .header-text-container{
