@@ -1,0 +1,50 @@
+version: '2.2'
+services:
+  memcached:
+    image: 'memcached:latest'
+  nginx:
+    image: 'nginx:latest'
+    expose:
+      - '80'
+      - '443'
+    depends_on:
+      - phpfpm
+    networks:
+      - default
+      - wplocaldocker
+    volumes:
+      - './wordpress:/var/www/html:cached'
+      - './config/nginx/server.conf:/etc/nginx/conf.d/common/_server.conf:cached'
+      - './config/nginx/default.conf:/etc/nginx/conf.d/default.conf:cached'
+    environment:
+      CERT_NAME: ufl-test
+      HTTPS_METHOD: noredirect
+      VIRTUAL_HOST: 'ufl.test,*.ufl.test'
+  phpfpm:
+    image: '10up/wp-php-fpm-dev:7.4-ubuntu'
+    depends_on:
+      - memcached
+    networks:
+      - default
+      - wplocaldocker
+    dns:
+      - 10.0.0.2
+    volumes:
+      - './wordpress:/var/www/html:cached'
+      - './config/php-fpm/docker-php-ext-xdebug.ini:/etc/php/7.4/fpm/conf.d/docker-php-ext-xdebug.ini:cached'
+      - 'wplocaldockerCache:/var/www/.wp-cli/cache:cached'
+      - '~/.ssh:/home/www-data/.ssh:cached'
+      - './config/php-fpm/wp-cli.local.yml:/var/www/.wp-cli/config.yml:cached'
+    cap_add:
+      - SYS_PTRACE
+    environment:
+      ENABLE_XDEBUG: 'true'
+      PHP_IDE_CONFIG: serverName=ufl-test
+networks:
+  wplocaldocker:
+    external:
+      name: wplocaldocker
+volumes:
+  wplocaldockerCache:
+    external:
+      name: wplocaldockerCache
