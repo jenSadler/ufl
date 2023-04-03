@@ -2,17 +2,106 @@
 
 :root{
    /*--primary-dark:#2D434D;*/
-   --primary-dark:rgb(57, 47, 90);
-    --accent-dark:rgb(128, 18, 5);
-    --primary-light:rgb(167, 221, 196);
-    --accent-light:#EF9E80;
     --white:#fff;
-    --bg-lightest:#FAF6EC;
+    --text-black: #231f20;
+    --text-grey: #58595b;
+    --text-maroon:  	#ab1b42;
+    
+    --lightest-grey:#f5f5f5;
+
+    --ua-red:#ee2e5a;
+    --ua-maroon:#ab1b42;
+    --ua-gray:#58595b;
+    --ua-black:#231F20;
+    --ua-cream:#fffbd3;
+    --ua-green:#a0c33b;
+    --ua-yellow:#febe10;
+    --ua-pink:#e30b7c;
+    --ua-aqua:#00accd;
+    --ua-blue:#3c3a73;
+
+    --ua-header-red-large:#e1295a;
+    --ua-header-green-large:#667f3c;
+    --ua-header-yellow-large:#b36206;
+    --ua-header-pink-large:#e30b7c;
+    --ua-header-aqua-large:#0381a2;
+
+    --ua-header-red:#b0123d;
+    --ua-header-maroon:#ab1b42;
+    --ua-header-gray:#58595b;
+    --ua-header-black:#231f20;
+    --ua-header-green:#4f5f28;
+    --ua-header-yellow:#8b4702;
+    --ua-header-pink:#ae0167;
+    --ua-header-aqua:#0f607f;
+    --ua-header-blue:#3c3a73;
+
 }
 
 body{
     background-color:var(--white);
     font-family: 'Merriweather Sans', sans-serif;
+    color:var(--text-black);
+}
+
+a{
+  color:var(--text-maroon);
+}
+a:hover{
+  color:#3c3a73;
+  text-decoration:underline;
+}
+
+h2{
+  color:var(--ua-header-blue);
+}
+
+h3{
+  font-size:1.5rem;
+}
+h4{
+  font-size:1.25rem;
+}
+h5{
+  font-size:1.15rem
+}
+
+ul.spaced-out-list li{
+  margin-bottom:2.5%;
+}
+
+blockquote{
+  font-size: 1.25rem;
+  width:80%;
+  margin:50px auto;
+  font-style:italic;
+  color: var(--ua-black);
+  padding:1.2em 30px 1.2em 75px;
+  border-left:8px solid var(--ua-aqua) ;
+  line-height:1.6;
+  position: relative;
+  background:var(--ua-cream);
+}
+
+blockquote::before{
+  content: "\201C";
+  color:var(--ua-aqua) ;
+  font-size:4em;
+  position: absolute;
+  left: 10px;
+  top:-10px;
+}
+
+blockquote::after{
+  content: '';
+}
+
+blockquote span{
+  display:block;
+  color:#333333;
+  font-style: normal;
+  font-weight: bold;
+  margin-top:1em;
 }
 
 .menu-image-title-after > span {
@@ -20,12 +109,17 @@ body{
     align-items: center;
     }
 
-  header{
-    background-image:linear-gradient(to bottom, rgba(57, 47, 90,0.52), rgba(167, 221, 196, 0.73)),
+  header.front-header{
+    background-image:linear-gradient(to bottom, rgba(60, 58, 115, 0.30), rgba(60, 58, 115, 0.70)),
     url("assets/img/unitarian-building.jpg");
     padding:8% 0;
     background-size:cover;
- 
+    background-position: center center; 
+    
+  }
+
+  header.main-header{
+    margin-bottom:2.5%;
   }
 
   .rainbow-box{
@@ -52,31 +146,116 @@ body{
     align-items: center;
     justify-content: center;
     margin:2%;
+    flex-direction:column;
   }
 
   .header-logo{
-    width:75px;
-    height:75px;
+    width:100px;
+    height:auto;
 
   }
-
+  h1.non-front{
+    margin:2% 0;
+  }
   .header-title{
     color:var(--white);
     font-weight:400;
     margin:0;
+    text-align:center;
+  }
+  .header-logo{
+    margin:0 auto;
+    text-align:center;
   }
   .header-subtitle{
     font-family: 'Merriweather', serif;
     color:var(--white);
     margin:0;
+    text-align:center;
   }
   .header-text-container{
     margin-left:2%;
   }
 
   main.main-container{
-    margin:2.5% 0;
+    margin:0;
+    margin-bottom:2.5%;
   }
 
   
 
+.home-youtube-wrapper{
+  text-align: center;
+
+}
+
+.mec-events-event-image img{
+  width:100%;
+  height:350px;
+  object-fit:cover;
+}
+
+article.mec-single-event .mec-event-social li.mec-event-social-icon a{
+  border-radius:50%;
+}
+
+.mec-credit-url,.nocomments{
+  display:none;
+}
+
+
+.mec-tooltip-event-featured img{
+  width:100%;
+  height:100px;
+  object-fit:cover;
+
+}
+
+.mec-event-tile-view article.mec-tile-item .mec-event-title a{
+  text-decoration:none;
+}
+div.mec-event-tile-view article.mec-tile-item .mec-event-title a:hover{
+  text-decoration:none;
+  color:var(--ua-red);
+}
+
+footer{
+  min-height:250px;
+  background-color:var(--lightest-grey);
+  
+}
+
+footer h1,footer h2, footer h3,footer h4,footer h5{
+  
+}
+
+footer .footer-container{
+  padding:2.5%;
+  display:flex;
+  gap:10%;
+}
+
+
+footer a{
+ 
+  text-decoration:none;
+}
+
+footer a:hover{
+  text-decoration:underline;
+ 
+}
+
+footer ul{
+  margin:0;
+  padding:0;
+}
+footer ul li ul{
+  padding-left:5%;
+}
+footer ul li{
+  list-style-type:none;
+}
+footer ul li ul li{
+  list-style-type:circle;
+}
