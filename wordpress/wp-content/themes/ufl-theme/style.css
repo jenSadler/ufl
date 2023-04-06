@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+  @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 
 :root{
    /*--primary-dark:#2D434D;*/
@@ -35,12 +37,13 @@
     --ua-header-pink:#ae0167;
     --ua-header-aqua:#0f607f;
     --ua-header-blue:#3c3a73;
+    --default-font: 'Montserrat', sans-serif !important;
 
 }
 
 body{
     background-color:var(--white);
-    font-family: 'Merriweather Sans', sans-serif;
+    font-family: var(--default-font);
     color:var(--text-black);
 }
 
@@ -51,6 +54,8 @@ a:hover{
   color:#3c3a73;
   text-decoration:underline;
 }
+
+
 
 h2{
   color:var(--ua-header-blue);
@@ -83,6 +88,18 @@ blockquote{
   background:var(--ua-cream);
 }
 
+.chalice-logo{
+  width:100px;
+  height:auto;
+}
+.header-text-container{
+  text-align: center;
+}
+
+.hide-on-screen{
+  display:none;
+}
+
 blockquote::before{
   content: "\201C";
   color:var(--ua-aqua) ;
@@ -109,7 +126,7 @@ blockquote span{
     align-items: center;
     }
 
-  header.front-header{
+  .front-header{
     background-image:linear-gradient(to bottom, rgba(60, 58, 115, 0.30), rgba(60, 58, 115, 0.70)),
     url("assets/img/unitarian-building.jpg");
     padding:8% 0;
@@ -118,7 +135,7 @@ blockquote span{
     
   }
 
-  header.main-header{
+  .main-header{
     margin-bottom:2.5%;
   }
 
@@ -156,10 +173,18 @@ blockquote span{
   }
   h1.non-front{
     margin:2% 0;
+    font-weight:bold;
   }
+  .aspect-3-2{
+    aspect-ratio: 16 / 9;
+    object-fit:cover;
+    overflow:hidden;
+  }
+
+  
   .header-title{
     color:var(--white);
-    font-weight:400;
+    font-weight:600;
     margin:0;
     text-align:center;
   }
@@ -168,7 +193,7 @@ blockquote span{
     text-align:center;
   }
   .header-subtitle{
-    font-family: 'Merriweather', serif;
+    font-family: var(--default-font);
     color:var(--white);
     margin:0;
     text-align:center;
@@ -180,6 +205,7 @@ blockquote span{
   main.main-container{
     margin:0;
     margin-bottom:2.5%;
+    padding:0;
   }
 
   
@@ -188,20 +214,80 @@ blockquote span{
   text-align: center;
 
 }
+.mec-container > h1{
+  display:none;
+}
 
-.mec-events-event-image img{
-  width:100%;
-  height:350px;
-  object-fit:cover;
+.mec-container{
+  padding:2% 0;
+}
+.mec-venue-details > span{
+  display:inline-block;
+  width:calc(100% - 30px);
+}
+.mec-event-address span {
+  display: block;
+}
+.mec-event-footer a {
+  text-decoration: none;
+}
+
+div.mec-totalcal-view span.mec-totalcalview-selected {
+  color: white !important;
+}
+
+article.mec-event-article {
+  border-radius: 5px;
+  overflow: hidden;
+}
+section.mec-container div.mec-totalcal-view .mec-totalcalview-selected{
+  color:white;
+}
+article.mec-event-article .mec-event-content div.mec-event-description{
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 
 article.mec-single-event .mec-event-social li.mec-event-social-icon a{
   border-radius:50%;
 }
 
+
+article.mec-single-event .mec-events-event-image img{
+  height:350px;
+  object-fit:cover;
+  width:100%;
+}
+
+article.mec-event-article .mec-event-image img{
+  width:100%;
+  height:auto;
+  max-height: 350px;
+  object-fit: cover;
+}
+
+.mec-related-events {
+  display: flex;
+  justify-content: center;
+}
+
 .mec-credit-url,.nocomments{
   display:none;
 }
+
+/*
+
+article.mec-event-article .mec-event-image img.attachment-thumblist.size-thumblist.wp-post-image{
+  width:100%;
+  height:100px;
+  object-fit:cover;
+}
+
+
+
+
 
 
 .mec-tooltip-event-featured img{
@@ -211,9 +297,16 @@ article.mec-single-event .mec-event-social li.mec-event-social-icon a{
 
 }
 
+.mec-tooltip-event-featured img, .mec-calendar-topsec .mec-calendar-side .mec-month-side .mec-calendar-events-sec .mec-event-image img{
+  width:100%;
+  height:100px;
+  object-fit:cover;
+} 
+
 .mec-event-tile-view article.mec-tile-item .mec-event-title a{
   text-decoration:none;
 }
+*/
 div.mec-event-tile-view article.mec-tile-item .mec-event-title a:hover{
   text-decoration:none;
   color:var(--ua-red);
@@ -230,9 +323,30 @@ footer h1,footer h2, footer h3,footer h4,footer h5{
 }
 
 footer .footer-container{
-  padding:2.5%;
+  padding:2%;
   display:flex;
-  gap:10%;
+  flex-wrap:wrap;
+
+  justify-content:space-between;
+}
+footer .footer-container div{
+  margin: 5% 1%;
+  flex-basis: 22%;
+  margin-top:5%;
+
+}
+
+@media only screen and (max-width: 1000px) {
+
+  footer div.footer-container div{
+    flex-basis:48%;
+  }
+}
+@media only screen and (max-width: 800px) {
+
+  footer div.footer-container div{
+    min-width:98%;
+  }
 }
 
 
@@ -259,3 +373,80 @@ footer ul li{
 footer ul li ul li{
   list-style-type:circle;
 }
+
+footer .dashicons::before {
+  
+  font-size: 25px;
+  color: white;
+  
+  border-radius: 50%;
+  padding: 40%;
+  display: inline-block;
+  margin: 10%;
+}
+footer .dashicons-facebook-alt::before{
+  background-color: #4267B2;
+ 
+}
+footer .dashicons-linkedin::before{
+  background-color:#0077b5;
+}
+footer .dashicons-instagram::before{
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  
+}
+
+footer .dashicons-twitter::before{
+  background-color:#1DA1F2;
+}
+
+footer .dashicons-youtube::before{
+  background-color: #FF0000;
+}
+footer div.social-footer{
+  margin-bottom:5%;
+}
+footer div.social-footer ul {
+  display: flex;
+  }
+  footer div.social-footer ul li {
+  width: calc(40px + 3%);
+  }
+
+  .pagination-links {
+    display: flex;
+    justify-content: center;
+    width:100%;
+    }
+
+    .pagination-links div{
+      
+      width:100%;
+    }
+
+    .pagination-links a{
+      text-decoration:none;
+      color:white;
+      background-color:var(--ua-maroon);
+      width:90%;
+      border-radius:5px;
+      padding:2.5%;
+      margin:2.5%;
+      display: block;
+  text-align: center;
+    }
+    .pagination-links a:hover{
+      text-decoration:none;
+      background-color:var(--ua-header-blue);
+    }
+
+    .hold-no-posts{
+      display:flex;
+    }
+
+
+    .bordered{
+      border:1px solid black;
+    }
+
+    

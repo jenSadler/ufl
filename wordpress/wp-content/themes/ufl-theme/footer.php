@@ -2,17 +2,17 @@
 <footer>
     <div class="container footer-container">
         <div>
-            <h3>Navigation</h3>
+        <h3>Social Media</h3>
         <?php wp_nav_menu( array(
             'theme_location'    => 'footer-1',
             'depth'             => 1,
             'container'         => 'div',
-            'container_class'   => 'footer-nav',
+            'container_class'   => 'footer-nav social-footer',
             
         ) ); ?>
         </div>
         <div>
-            <h3>About Us</h3>
+            <h3>Navigation</h3>
         <?php wp_nav_menu( array(
             'theme_location'    => 'footer-2',
             'depth'             => 1,
@@ -22,7 +22,18 @@
         ) ); ?>
         </div>
         <div>
-            <h3>Contact Us </h3>
+        <h3>About Us</h3>
+        <?php wp_nav_menu( array(
+            'theme_location'    => 'footer-3',
+            'depth'             => 1,
+            'container'         => 'div',
+            'container_class'   => 'footer-nav',
+            
+        ) ); ?>
+        </div>
+        
+        <div>
+            <h3>Get In Touch </h3>
             <p><strong>Phone</strong><br/> <a href="tel:15194510424">(519) 451-0424</a></p>
             <p><strong>Email</strong><br/><a href="mailto:ufl@execulink.com">ufl@execulink.com</a></p>
             <p><strong>Address</strong> <br/>

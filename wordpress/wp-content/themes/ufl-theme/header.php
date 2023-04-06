@@ -7,7 +7,13 @@
        else{
         $isEvent = true;
        }
+
+    
+
+       $isEventsList = is_post_type_archive( 'mec-events' );
+       
 ?>
+<?php $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full');?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,14 +21,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Unitarian Fellowship of London</title> 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> 
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri()?>/style.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri()?>/assets/css/navbar-v2.css">
+   <!-- <link rel="stylesheet" type="text/css" media="all" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> 
+    <link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo( 'stylesheet_url' );?>" />
+     <link rel="stylesheet" type="text/css" media="screen" href="<?php echo get_template_directory_uri();?>/assets/css/navbar-v2.css"/> -->
+    <link rel="stylesheet"  type="text/css" media="screen"  href="<?php echo get_template_directory_uri();?>/assets/css/print.css"/>
+  
     <?php wp_head()?>
   </head>
 
   <body>
-  <?php $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full');?>
+  
    
 
   
@@ -59,11 +67,12 @@
     </div>
 </nav>
 <div class="rainbow-box"></div>
+
 <?php if(is_front_page()):?>
   <?php if(has_post_thumbnail()): ?>
-      <header class="hold-header front-header main-header" style="background-image:linear-gradient(to bottom, rgba(60, 58, 115, 0.60), rgba(60, 58, 115, 0.80)),url('<?php echo $large_image_url[0]?>');">
+      <header class="hold-header front-header real-front main-header" style="background-image:linear-gradient(to bottom, rgba(60, 58, 115, 0.60), rgba(60, 58, 115, 0.80)),url('<?php echo $large_image_url[0]?>');">
    <?php else: ?>
-      <header class="hold-header front-header main-header">
+      <header class="hold-header front-header real-front main-header">
   <?php endif; ?>
    <div class="container">
      <div class="header-container">
@@ -83,30 +92,65 @@
      </div>
    </div>
    </header>
-   <?php elseif( has_post_thumbnail() && !$isEvent ) :?>
+   <?php elseif($isEventsList):?>
+    <header class="hold-header front-header main-header" style="background-image:linear-gradient(to bottom, rgba(60, 58, 115, 0.60), rgba(60, 58, 115, 0.80)),url('<?php echo get_template_directory_uri(); ?>/assets/img/calendar.jpg');">
+    <div class="container">
+      <div class="header-text-container">
+      <?php if (has_site_icon()): ?>
+       <img src="<?php echo get_site_icon_url();?>" class="chalice-logo hide-on-screen"  alt="logo"/>
+      <?php endif;?>
+         <h1 class="header-title">Events</h1>
+    
+       </div>
+   </div>
+   </header>
+   <?php elseif(is_home() ||is_single()  ) :?>
    
-    <header class="hold-header front-header main-header" style="background-image:linear-gradient(to bottom, rgba(60, 58, 115, 0.60), rgba(60, 58, 115, 0.80)),url('<?php echo $large_image_url[0]?>');">
+  <?php elseif($isEvent):?>
+    <header class="non-hold main-header">
+    <div class="container">
+  
+   </div>
+   </header>
    
+   <?php elseif( is_page()):?>
+    <?php if(has_post_thumbnail()): ?>
+      <header class="hold-header front-header main-header" style="background-image:linear-gradient(to bottom, rgba(60, 58, 115, 0.60), rgba(60, 58, 115, 0.80)),url('<?php echo $large_image_url[0]?>');">
+   <?php else: ?>
+    <header class="hold-header front-header main-header" style="background-image:linear-gradient(to bottom, rgba(60, 58, 115, 0.60), rgba(60, 58, 115, 0.80)),url('<?php echo get_template_directory_uri(); ?>/assets/img/background.jpg');">
+    <?php endif; ?>
+    
    <div class="container">
      <div class="header-container">
      
        <div class="header-text-container">
+       <?php if (has_site_icon()): ?>
+       <img src="<?php echo get_site_icon_url();?>" class="chalice-logo hide-on-screen"  alt="logo"/>
+      <?php endif;?>
          <h1 class="header-title"><?php echo get_the_title();?></h1>
     
        </div>
      </div>
    </div>
    </header>
-   
-  <?php elseif(!$isEvent):?>
-    <header class="non-hold main-header">
-    <div class="container">
-    <h1 class="non-front"><?php echo get_the_title();?></h1>
+   <?php elseif(is_404()): ?>
+      <header class="hold-header front-header main-header" style="background-image:linear-gradient(to bottom, rgba(60, 58, 115, 0.60), rgba(60, 58, 115, 0.80)),url('<?php echo get_template_directory_uri(); ?>/assets/img/mountains.jpg');">
+    
+   <div class="container">
+     <div class="header-container">
+     
+       <div class="header-text-container">
+       <?php if (has_site_icon()): ?>
+       <img src="<?php echo get_site_icon_url();?>" class="chalice-logo hide-on-screen"  alt="logo"/>
+      <?php endif;?>
+         <h1 class="header-title">You're off the map!</h1>
+    
+       </div>
+     </div>
    </div>
    </header>
-
    <?php else:?>
-    <header class="non-hold main-header">
+    <header class="non-hold">
     <div class="container">
    </div>
    </header>
